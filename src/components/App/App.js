@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Navbar, Jumbotron, Button, Grid } from 'react-bootstrap';
+import { Navbar, Jumbotron, Button, Grid, Row, Col } from 'react-bootstrap';
 import logo from './../../logo.svg';
 import * as FourSquareAPI from '../../api/FourSquareAPI';
+import Menu from './../Menu/Menu'
 import './App.css';
 
 class App extends Component {
@@ -31,30 +32,14 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Navbar inverse fixedTop>
-          <Grid>
-            <Navbar.Header>
-              <Navbar.Brand>
-                <a href="/">React App</a>
-              </Navbar.Brand>
-              <Navbar.Toggle />
-            </Navbar.Header>
-          </Grid>
-        </Navbar>
-        <Jumbotron>
-          <Grid>
-            <h1>Welcome to React</h1>
-            <p>
-              <Button
-                bsStyle="success"
-                bsSize="large"
-                href="http://react-bootstrap.github.io/components.html"
-                target="_blank">
-                View React Bootstrap Docs
-              </Button>
-            </p>
-          </Grid>
-        </Jumbotron>
+          <Row className="show-grid">
+            <Col md={3}>
+              <Menu></Menu>
+            </Col>
+            <Col md={9}>
+              Mapa
+            </Col>
+          </Row>
       </div>
     );
   }
