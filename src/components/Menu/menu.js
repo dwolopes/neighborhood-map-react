@@ -9,25 +9,9 @@ class Menu extends Component {
         <Nav stacked>
           <Filter />
           <Navbar>
-            <NavItem href='/home'>
-                NavItem 1 content
-            </NavItem>
-            <NavItem href='/home'>
-                NavItem 2 content
-            </NavItem>
-            <NavItem href='/home'>
-                NavItem 3 content
-            </NavItem>
-            <NavItem href='/home'>
-                NavItem 4 content
-            </NavItem>
-            <NavItem href='/home'>
-                NavItem 5 content
-            </NavItem>
-            <NavItem href='/home'>
-                NavItem 6 content
-            </NavItem>
-            <Nav />
+            {
+              this.props.locations.map(location => <NavItem key={location.referralId}>{location.venue.name}</NavItem>)
+            }
           </Navbar>
         </Nav>
       </div>

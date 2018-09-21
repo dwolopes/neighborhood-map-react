@@ -17,9 +17,8 @@ class App extends Component {
       if(!('error' in places)){
         this.setState({
           isLoaded: true,
-          places: places
+          places: places.groups[0].items
         })
-        console.log(this.state);
       } else {
         this.setState({
           isLoaded: false,
@@ -34,7 +33,7 @@ class App extends Component {
       <div>
           <Row className="show-grid">
             <Col md={3}>
-              <Menu></Menu>
+              <Menu locations={this.state.places}></Menu>
             </Col>
             <Col md={9}>
               Mapa
