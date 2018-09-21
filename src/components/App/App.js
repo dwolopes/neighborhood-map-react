@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Navbar, Jumbotron, Button, Grid, Row, Col } from 'react-bootstrap';
 import logo from './../../logo.svg';
 import * as FourSquareAPI from '../../api/FourSquareAPI';
-import Menu from './../Menu/Menu'
+import Menu from './../Menu/Menu';
+import Mapa from './../Mapa/Mapa';
 import './App.css';
 
 class App extends Component {
@@ -36,7 +37,12 @@ class App extends Component {
               <Menu locations={this.state.places}></Menu>
             </Col>
             <Col md={9}>
-              Mapa
+              <Mapa
+                googleMapURL='https://maps.googleapis.com/maps/api/js?key=AIzaSyBjj74PregS7fvpgtywObZ79sXiVRkI8vY&v=3.exp&libraries=geometry,drawing,places'
+                loadingElement={<div style={{ height: `100%` }} />}
+                containerElement={<div style={{ height: `700px` }} />}
+                mapElement={<div style={{ height: `100%` }} />}
+              />
             </Col>
           </Row>
       </div>
