@@ -8,9 +8,8 @@ class Filter extends Component {
         <Navbar.Header>
           <Navbar.Form pullLeft>
             <FormGroup>
-              <FormControl type='text' placeholder='Lugares' />
+              <FormControl type='text' placeholder='Lugares' onChange={(event) => this.props.onChangeQuery(event.target.value)}/>
             </FormGroup>{' '}
-            <Button type='submit'>Pesquisar</Button>
           </Navbar.Form>
         </Navbar.Header>
       </Navbar>

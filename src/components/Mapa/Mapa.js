@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-const { compose, withProps, withStateHandlers } = require('recompose');
+import React from 'react';
+const { compose, withStateHandlers } = require('recompose');
 const {
   withScriptjs,
   withGoogleMap,
@@ -23,14 +23,19 @@ const Mapa = compose(
     defaultZoom={14}
     defaultCenter={{ lat: -19.8779976, lng: -43.9549113 }}
   >
-    <Marker
-      position={{ lat: -19.878495, lng: -43.9336247 }}
-      onClick={props.onToggleOpen}
-    >
-      {props.isOpen && <InfoWindow onCloseClick={props.onToggleOpen}>
-        Texto
-      </InfoWindow>}
-    </Marker>
+  {
+    props.locations.map(location => 
+      <Marker
+        key = {location.venue.id}
+        position={{ lat: location.venue.location.lat, lng: location.venue.location.lng }}
+        onClick={props.onToggleOpen}
+      >
+        {props.isOpen && <InfoWindow onCloseClick={props.onToggleOpen}>
+          <p>Texto</p>
+        </InfoWindow>}
+      </Marker>
+    )
+  }
   </GoogleMap>
 )
 

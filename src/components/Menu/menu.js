@@ -7,7 +7,7 @@ class Menu extends Component {
     return (
       <div>
         <Nav stacked>
-          <Filter />
+          <Filter onChangeQuery = {this.props.onChangeQuery}></Filter>
           <Navbar>
             {
               this.props.locations.map(location => <NavItem key={location.referralId}>{location.venue.name}</NavItem>)
