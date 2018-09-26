@@ -37,11 +37,18 @@ class App extends Component {
     this.setState({query: query.trim()});
   }
 
-  onToggleMarker = (idPlace) => {
-    this.setState((state) => ({
-        isOpen: !this.state.isOpen,
+  onToggleMarker = (idPlace, flag) => {
+    if(idPlace === this.state.placeToShow || flag === false) {
+      this.setState({
+          isOpen: !flag,
+          placeToShow: idPlace
+      })
+    } else {
+      this.setState({
+        isOpen: flag,
         placeToShow: idPlace
-    }))
+      })
+    }
   }
 
   render() {
@@ -62,7 +69,8 @@ class App extends Component {
               <Menu 
                 locations={showingPlaces} 
                 onChangeQuery = {this.onChangeQuery}
-                onToggleOpen={this.onToggleMarker}>
+                onToggleOpen={this.onToggleMarker}
+                isOpen = {this.state.isOpen}>
               </Menu>
             </Col>
             <Col md={9}>

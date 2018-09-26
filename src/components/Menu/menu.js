@@ -12,7 +12,7 @@ class Menu extends Component {
             {
               this.props.locations.map(location =>
                 <NavItem
-                  onClick={() => this.props.onToggleOpen(location.venue.id)}
+                  onClick={() => this.props.onToggleOpen(location.venue.id, this.props.isOpen)}
                   key={location.referralId}>
                   {location.venue.name}
                 </NavItem>
