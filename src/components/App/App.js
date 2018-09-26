@@ -12,7 +12,9 @@ class App extends Component {
     error: null,
     isLoaded:false,
     places: [],
-    query: ''
+    query: '',
+    isOpen: false,
+    placeToShow: ''
   }
 
   componentDidMount() {
@@ -35,6 +37,13 @@ class App extends Component {
     this.setState({query: query.trim()});
   }
 
+  onToggleMarker = (idPlace) => {
+    this.setState((state) => ({
+        isOpen: !this.state.isOpen,
+        placeToShow: idPlace
+    }))
+  }
+
   render() {
     let showingPlaces;
     if(this.state.query){ 
@@ -46,16 +55,21 @@ class App extends Component {
 
     showingPlaces.sort(sortBy('venue.name'));
 
-    console.log(showingPlaces);
-
     return (
       <div>
           <Row className="show-grid">
             <Col md={3}>
-              <Menu locations={showingPlaces} onChangeQuery = {this.onChangeQuery}></Menu>
+              <Menu 
+                locations={showingPlaces} 
+                onChangeQuery = {this.onChangeQuery}
+                onToggleOpen={this.onToggleMarker}>
+              </Menu>
             </Col>
             <Col md={9}>
               <Mapa
+                placeToShow={this.state.placeToShow}
+                onToggleOpen={this.onToggleMarker}
+                isOpen = {this.state.isOpen}
                 locations={showingPlaces}
                 googleMapURL='https://maps.googleapis.com/maps/api/js?key=AIzaSyBjj74PregS7fvpgtywObZ79sXiVRkI8vY&v=3.exp&libraries=geometry,drawing,places'
                 loadingElement={<div style={{ height: `100%` }} />}
