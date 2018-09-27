@@ -3,7 +3,7 @@ import {Row, Col } from 'react-bootstrap';
 import escapeRegExp from 'escape-string-regexp';
 import sortBy from 'sort-by';
 import * as FourSquareAPI from '../../api/FourSquareAPI';
-import Menu from './../Menu/Menu'
+import Menu from '../Menu/Menu'
 import Mapa from './../Mapa/Mapa';
 import './App.css';
 
