@@ -1,5 +1,7 @@
-import React from 'react'
-const { compose, withStateHandlers } = require('recompose')
+import React from 'react';
+const IconSel = require('../../images/iconSel.png');
+const IconDef = require('../../images/iconDef.png');
+const { compose, withStateHandlers } = require('recompose');
 const {
   withScriptjs,
   withGoogleMap,
@@ -13,7 +15,7 @@ const Mapa = compose(
   withGoogleMap
 )(props =>
   <GoogleMap
-    defaultZoom={14}
+    defaultZoom={12}
     defaultCenter={{ lat: -19.8779976, lng: -43.9549113 }}
   >
     {
@@ -22,6 +24,11 @@ const Mapa = compose(
           key={location.venue.id}
           position={{ lat: location.venue.location.lat, lng: location.venue.location.lng }}
           onClick={() => props.onToggleOpen(location.venue.id, props.isOpen)}
+          icon={
+            props.placeToShow === location.venue.id && props.isOpen
+              ? { url: IconSel }
+              : { url: IconDef }
+          }
         >
           {props.isOpen && props.placeToShow === location.venue.id && <InfoWindow onCloseClick={props.onToggleOpen}>
             <div>

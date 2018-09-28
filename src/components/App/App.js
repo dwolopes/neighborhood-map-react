@@ -65,7 +65,7 @@ class App extends Component {
     return (
       <div>
           <Row className="show-grid">
-            <Col md={3}>
+            <Col md={5}>
               <Menu 
                 locations={showingPlaces} 
                 onChangeQuery = {this.onChangeQuery}
@@ -73,7 +73,7 @@ class App extends Component {
                 isOpen = {this.state.isOpen}>
               </Menu>
             </Col>
-            <Col md={9}>
+            <Col md={7}>
               <Mapa
                 placeToShow={this.state.placeToShow}
                 onToggleOpen={this.onToggleMarker}
@@ -81,7 +81,7 @@ class App extends Component {
                 locations={showingPlaces}
                 googleMapURL='https://maps.googleapis.com/maps/api/js?key=AIzaSyBjj74PregS7fvpgtywObZ79sXiVRkI8vY&v=3.exp&libraries=geometry,drawing,places'
                 loadingElement={<div style={{ height: `100%` }} />}
-                containerElement={<div style={{ height: `700px` }} />}
+                containerElement={<div style={{ height: `800px` }} />}
                 mapElement={<div style={{ height: `100%` }} />}
               />
             </Col>
