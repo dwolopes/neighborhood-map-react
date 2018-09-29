@@ -1,6 +1,6 @@
 import React from 'react';
-const IconSel = require('../../images/iconSel.png');
-const IconDef = require('../../images/iconDef.png');
+const iconSel = require('../../images/iconSel.png');
+const iconDef = require('../../images/iconDef.png');
 const { compose, withStateHandlers } = require('recompose');
 const {
   withScriptjs,
@@ -26,8 +26,8 @@ const Mapa = compose(
           onClick={() => props.onToggleOpen(location.venue.id, props.isOpen)}
           icon={
             props.placeToShow === location.venue.id && props.isOpen
-              ? { url: IconSel }
-              : { url: IconDef }
+              ? { url: iconSel }
+              : { url: iconDef }
           }
         >
           {props.isOpen && props.placeToShow === location.venue.id && <InfoWindow onCloseClick={props.onToggleOpen}>
