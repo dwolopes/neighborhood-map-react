@@ -79,10 +79,10 @@ class App extends Component {
 
     return (
       <Grid>
-          <Navbar>
+          <Navbar role="navigation">
             <Navbar.Header>
               <Navbar.Brand>
-                <a href="/"><Image src={IconLogo} responsive /></a>
+                <a href="/"><Image src={IconLogo} responsive alt="neighborhood MAP with React"/></a>
               </Navbar.Brand>
               <Navbar.Toggle />
             </Navbar.Header>
@@ -126,6 +126,8 @@ class App extends Component {
                 </Col>
                 <Col md={7}>
                   <Mapa
+                    role="application" 
+                    aria-label="A map showing the coffee shops nearby Palmares"
                     placeToShow={this.state.placeToShow}
                     onToggleOpen={this.onToggleMarker}
                     isOpen = {this.state.isOpen}

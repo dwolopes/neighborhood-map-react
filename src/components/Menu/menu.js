@@ -12,7 +12,7 @@ class Menu extends Component {
   
   render () {
     return (
-      <div>
+      <aside>
         {
           this.props.locations.length > 0  ? (
           <Nav bsStyle="pills" stacked onSelect={(placeData) => this.handleSelect(placeData)}>
@@ -34,7 +34,7 @@ class Menu extends Component {
               <p> Try search again :) </p>
           </Alert>
         )}
-      </div>
+      </aside>
     )
   }
 }
