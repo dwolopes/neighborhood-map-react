@@ -1,7 +1,7 @@
-import React from 'react';
-const iconSel = require('../../images/iconSel.png');
-const iconDef = require('../../images/iconDef.png');
-const { compose, withStateHandlers } = require('recompose');
+import React from 'react'
+const iconSel = require('../../images/iconSel.png')
+const iconDef = require('../../images/iconDef.png')
+const { compose, withStateHandlers } = require('recompose')
 const {
   withScriptjs,
   withGoogleMap,
@@ -31,7 +31,8 @@ const Mapa = compose(
           }
         >
           {props.isOpen && props.placeToShow === location.venue.id && <InfoWindow onCloseClick={props.onToggleOpen}>
-            <div>
+            <div tabIndex='0'>
+              <h5>{location.venue.name}</h5>
               <h6>{location.venue.location.formattedAddress[0]}</h6>
               <h6>{location.venue.location.formattedAddress[1]}</h6>
             </div>

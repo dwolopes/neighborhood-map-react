@@ -22,6 +22,7 @@ class App extends Component {
     query: '',
     isOpen: false,
     placeToShow: [],
+    mapError: false
   }
 
 
@@ -40,6 +41,10 @@ class App extends Component {
         })
       }
     });
+
+    window.gm_authFailure = () => {
+      this.setState({ mapError: true })
+    };
   }
 
   onChangeQuery = (query) => {
@@ -106,7 +111,7 @@ class App extends Component {
             this.state.isLoaded ? (
               <Row className="show-grid">
                 <Col md={5}>
-                  <h3>Can I have a Coffee ?</h3>
+                  <h3 tabIndex='0' >Can I have a Coffee ?</h3>
                   {
                       showingPlaces.length > 0 ? (
                       <Menu 
@@ -125,7 +130,14 @@ class App extends Component {
                   <span>Places recovered with <a target="_black" href="https://foursquare.com" >FourSqure API</a></span>
                 </Col>
                 <Col md={7}>
-                  <Mapa
+                {
+                  this.state.mapError ? (
+                    <Alert bsStyle="danger" onDismiss={this.handleDismiss}>
+                      <h4>Oh snap! You got an error!</h4>
+                      <p> We can't load your the map for authetication error. Reload the Page</p>
+                    </Alert>
+                  ) : (
+                    <Mapa
                     placeToShow={this.state.placeToShow}
                     onToggleOpen={this.onToggleMarker}
                     isOpen = {this.state.isOpen}
@@ -141,6 +153,9 @@ class App extends Component {
                       }
                     mapElement={<div style={{ height: `100%` }} />}
                   />
+
+                  )
+                }
                 </Col>
               </Row>
 

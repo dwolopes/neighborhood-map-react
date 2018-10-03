@@ -6,7 +6,7 @@ class Filter extends Component {
     return (
       <Navbar.Form pullLeft>
         <FormGroup>
-          <FormControl type='text' placeholder='Lugares' onChange={(event) => this.props.onChangeQuery(event.target.value)}/>
+          <FormControl type='text' placeholder='places' onChange={(event) => this.props.onChangeQuery(event.target.value)}/>
         </FormGroup>
         {' '}
       </Navbar.Form>
