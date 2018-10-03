@@ -126,15 +126,19 @@ class App extends Component {
                 </Col>
                 <Col md={7}>
                   <Mapa
-                    role="application" 
-                    aria-label="A map showing the coffee shops nearby Palmares"
                     placeToShow={this.state.placeToShow}
                     onToggleOpen={this.onToggleMarker}
                     isOpen = {this.state.isOpen}
                     locations={showingPlaces}
                     googleMapURL='https://maps.googleapis.com/maps/api/js?key=AIzaSyBjj74PregS7fvpgtywObZ79sXiVRkI8vY&v=3.exp&libraries=geometry,drawing,places'
                     loadingElement={<div style={{ height: `100%` }} />}
-                    containerElement={<div style={{ height: `800px` }} />}
+                    containerElement={
+                      <div 
+                        tabIndex="0"
+                        role="application"
+                        aria-label="A map showing the coffee shops nearby Palmares" 
+                        style={{ height: `800px` }} />
+                      }
                     mapElement={<div style={{ height: `100%` }} />}
                   />
                 </Col>
