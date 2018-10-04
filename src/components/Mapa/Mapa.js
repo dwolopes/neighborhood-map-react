@@ -1,7 +1,7 @@
 import React from 'react'
 const iconSel = require('../../images/iconSel.png')
 const iconDef = require('../../images/iconDef.png')
-const { compose, withStateHandlers } = require('recompose')
+const { compose } = require('recompose')
 const {
   withScriptjs,
   withGoogleMap,
