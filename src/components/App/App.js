@@ -101,7 +101,7 @@ class App extends Component {
                 <NavItem eventKey={1} target="_blank" href="https://foursquare.com/">
                   FourSquareAPI
                 </NavItem>
-                <NavItem eventKey={2} target="_blank" href="https://developers.google.com/maps/documentation/?hl=pt-br">
+                <NavItem eventKey={2} target="_blank" href="https://developers.google.com/maps/documentation">
                   Google API
                 </NavItem>
               </Nav>
